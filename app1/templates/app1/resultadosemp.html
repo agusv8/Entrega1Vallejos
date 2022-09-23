@@ -1,0 +1,23 @@
+{% extends "app1/padre.html" %}
+
+{% load static %}
+
+{% block titulo%}
+    Busqueda
+{% endblock %}
+
+{% block tituloprin%}
+    <p>Está buscando: {{nombre}}</p>
+
+    {% if Aspirantes %}
+        {% for empleado in Empleados %}
+            <ul>
+                <li>{{Empleados.nombre}}</li>
+                <li>{{Empleados.edad}}</li>
+                <li>{{Empleados.cargo}}</li>
+            </ul>
+        {%endfor%}
+    {%end if%}
+{% endblock %}
+
+    

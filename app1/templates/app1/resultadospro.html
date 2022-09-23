@@ -1,0 +1,22 @@
+{% extends "app1/padre.html" %}
+
+{% load static %}
+
+{% block titulo%}
+    Busqueda
+{% endblock %}
+
+{% block tituloprin%}
+    <p>Está buscando: {{codigo}}</p>
+
+    {% if Aspirantes %}
+        {% for producto in Productos %}
+            <ul>
+                <li>{{Productos.nombre}}</li>
+                <li>{{Productos.codigo}}</li>
+                <li>{{Productos.vto}}</li>
+            </ul>
+        {%endfor%}
+    {%end if%}
+    
+{% endblock %}

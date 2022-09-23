@@ -1,0 +1,17 @@
+{% extends "app1/padre.html" %}
+
+{% load static %}
+
+{% block pestaña%}
+    Crear Aspirante
+{% endblock %}
+
+{% block tituloprin%}
+    <form method="POST"> {% csrf_token%}
+        <table>
+            {{formaspirante.as_p}}
+        </table>
+        <input type="submit" value="Crear">
+    </form>
+    
+{% endblock %}
