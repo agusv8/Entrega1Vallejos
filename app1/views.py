@@ -72,7 +72,6 @@ def busquedaempleado(request):
       
       return HttpResponse(mensaje)
 
-'''
 def busquedaaspirante(request):
       if request.GET["nombre"]:
             busqueda2 = request.GET["nombre"]
@@ -101,5 +100,3 @@ def resuasp(request):
 
 def resupro(request):
       return render(request, "app1/resultadospro.html")
-
-'''
