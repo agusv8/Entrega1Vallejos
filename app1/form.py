@@ -4,7 +4,7 @@ from django import forms
 class Formularioempleado(forms.Form):
     nombre = forms.CharField()
     edad = forms.IntegerField()
-    cargo = forms.CharField()
+    cargos = forms.CharField()
 
 class Formularioproducto(forms.Form):
     nombre = forms.CharField()

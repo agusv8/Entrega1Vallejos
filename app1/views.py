@@ -22,7 +22,7 @@ def formempleado(request):
             formulario1 = Formularioempleado(request.POST)
             if formulario1.is_valid():
                   info = formulario1.cleaned_data
-                  empleadof = models.Empleados(nombre = info["nombre"], edad = info["edad"], cargo = info["cargo"])
+                  empleadof = Empleados(nombre = info["nombre"], edad = info["edad"], cargos = info["cargos"])
                   empleadof.save()
                   return render (request, "app1/empleadocreado.html")
 
@@ -37,7 +37,7 @@ def formproducto(request):
             formulario2 = Formularioproducto(request.POST)
             if formulario2.is_valid():
                   info = formulario2.cleaned_data
-                  productof = models.Productos(nombre = info["nombre"], codigo = info["codigo"], vto = info["vto"])
+                  productof = Productos(nombre = info["nombre"], codigo = info["codigo"], vto = info["vto"])
                   productof.save()
                   return render (request, "app1/productocreado.html")
 
@@ -52,7 +52,7 @@ def formaspirante(request):
             formulario3 = Formularioaspirante(request.POST)
             if formulario3.is_valid():
                   info = formulario3.cleaned_data
-                  aspirantef = models.Aspirantes(nombre = info["nombre"], edad = info["edad"], ingreso = info["ingreso"])
+                  aspirantef = Aspirantes(nombre = info["nombre"], edad = info["edad"], ingreso = info["ingreso"])
                   aspirantef.save()
                   return render (request, "app1/aspirantecreado.html")
 
@@ -63,9 +63,9 @@ def formaspirante(request):
 
 
 def busquedaempleado(request):
-      if request.GET["cargo"]:
-            busqueda = request.GET["cargo"]
-            empleado =  Empleados.objects.filter(cargo__icontains=busqueda)
+      if request.GET["cargos"]:
+            busqueda = request.GET["cargos"]
+            empleado =  Empleados.objects.filter(cargos__icontains=busqueda)
             return render(request, "app1/resultadosemp.html", {"empleado":empleado, "busqueda":busqueda})
       else:
             mensaje = "No enviaste datos"
