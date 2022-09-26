@@ -9,15 +9,13 @@
 {% block tituloprin%}
     <p>Está buscando: {{busqueda}}</p>
 
-    {% if Aspirantes %}
-        {% for empleado in Empleados %}
-            <ul>
-                <li>{{Empleados.nombre}}</li>
-                <li>{{Empleados.edad}}</li>
-                <li>{{Empleados.cargo}}</li>
-            </ul>
-        {%endfor%}
-    {%end if%}
+    {% for empleado in empleados %}
+        <ul>
+            <li>{{empleados.nombre}}</li>
+            <li>{{empleados.edad}}</li>
+            <li>{{empleados.cargo}}</li>
+        </ul>
+    {%endfor%}
 {% endblock %}
 
     

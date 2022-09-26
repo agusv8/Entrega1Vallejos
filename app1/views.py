@@ -62,6 +62,9 @@ def formaspirante(request):
       return render (request, "app1/crearaspirante.html", {"formaspirante":formulario3})
 
 
+def buscarempleado(request):
+      return render(request, "app1/buscarempleado.html")
+
 def busquedaempleado(request):
       if request.GET["cargos"]:
             busqueda = request.GET["cargos"]
