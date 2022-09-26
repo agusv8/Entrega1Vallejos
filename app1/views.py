@@ -65,6 +65,12 @@ def formaspirante(request):
 def buscarempleado(request):
       return render(request, "app1/buscarempleado.html")
 
+def buscarproducto(request):
+      return render(request, "app1/buscarproducto.html")
+
+def buscaraspirante(request):
+      return render(request, "app1/buscaraspirante.html")
+
 def busquedaempleado(request):
       if request.GET["cargos"]:
             busqueda = request.GET["cargos"]
@@ -95,11 +101,3 @@ def busquedaproducto(request):
       return HttpResponse (respuesta)
 
 
-def resuemp(request):
-      return render(request, "app1/resultadosemp.html")
-
-def resuasp(request):
-      return render(request, "app1/resultadosasp.html")
-
-def resupro(request):
-      return render(request, "app1/resultadospro.html")

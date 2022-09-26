@@ -9,14 +9,13 @@
 {% block tituloprin%}
     <p>Está buscando: {{busqueda3}}</p>
 
-    {% if Aspirantes %}
-        {% for producto in Productos %}
-            <ul>
-                <li>{{Productos.nombre}}</li>
-                <li>{{Productos.codigo}}</li>
-                <li>{{Productos.vto}}</li>
-            </ul>
-        {%endfor%}
-    {%end if%}
+    {% for producto in Productos %}
+        <ul>
+            <li>{{Productos.nombre}}</li>
+            <li>{{Productos.codigo}}</li>
+            <li>{{Productos.vto}}</li>
+        </ul>
+    {%endfor%}
+
     
 {% endblock %}
