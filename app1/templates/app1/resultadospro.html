@@ -9,11 +9,11 @@
 {% block tituloprin%}
     <p>Está buscando: {{busqueda3}}</p>
 
-    {% for producto in Productos %}
+    {% for producto in productos %}
         <ul>
-            <li>{{Productos.nombre}}</li>
-            <li>{{Productos.codigo}}</li>
-            <li>{{Productos.vto}}</li>
+            <li>{{productos.nombre}}</li>
+            <li>{{productos.codigo}}</li>
+            <li>{{productos.vto}}</li>
         </ul>
     {%endfor%}
 
