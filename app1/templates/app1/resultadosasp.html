@@ -7,15 +7,20 @@
 {% endblock %}
 
 {% block tituloprin%}
-    <p>Está buscando: {{busqueda2}}</p>
+    Está buscando: {{busqueda2}}
 
-    {% for aspirantes in aspirantes %}
-    <p>
-        <ul>
-            <li>Nombre: {{aspirantes.nombre}}</li>
-            <li>Edad: {{aspirantes.edad}}</li>
-            <li>Ingreso: {{aspirantes.ingreso}}</li>
-        </ul>
-    </p>
+
+{% endblock %}
+
+{% block descripcion%}
+    {% for aspirantes in aspirante %}
+        <DIV ALIGN="left">
+            <ul>
+                <li>Nombre: {{aspirantes.nombre}}</li>
+                <li>Edad: {{aspirantes.edad}}</li>
+                <li>Ingreso: {{aspirantes.ingreso}}</li>
+            </ul>
+        </DIV>
     {%endfor%}
 {% endblock %}
+

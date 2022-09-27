@@ -7,17 +7,18 @@
 {% endblock %}
 
 {% block tituloprin%}
-    <p>Está buscando: {{busqueda3}}</p>
+    Está buscando: {{busqueda3}}
+{% endblock %}
+
+{% block descripcion%}
 
     {% for productos in producto %}
-    <h3>
+    <DIV ALIGN=left>
         <ul>
             <li>Nombre: {{productos.nombre}}</li>
             <li>Código: {{productos.codigo}}</li>
             <li>Vto: {{productos.vto}}</li>
         </ul>
-    </h3>
+    </DIV>
     {%endfor%}
-
-    
 {% endblock %}

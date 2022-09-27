@@ -7,17 +7,19 @@
 {% endblock %}
 
 {% block tituloprin%}
-    <p>Está buscando: {{busqueda}}</p>
+    Está buscando: {{busqueda}}
 
-    {% for empleados in empleados %}
-    <p>
-        <ul>
-            <li>Nombre: {{empleados.nombre}}</li>
-            <li>Edad: {{empleados.edad}}</li>
-            <li>Cargos: {{empleados.cargos}}</li>
-        </ul>
-    </p>
-    {%endfor%}
+
 {% endblock %}
 
-    
+{% block descripcion %}
+    {% for empleados in empleado %}
+        <DIV ALIGN=left>
+            <ul>
+                <li>Nombre: {{empleados.nombre}}</li>
+                <li>Edad: {{empleados.edad}}</li>
+                <li>Cargos: {{empleados.cargos}}</li>
+            </ul>
+    </DIV>
+    {%endfor%}
+{% endblock %}
