@@ -9,11 +9,13 @@
 {% block tituloprin%}
     <p>Está buscando: {{busqueda2}}</p>
 
-    {% for aspirante in Aspirantes %}
+    {% for aspirantes in aspirantes %}
+    <p>
         <ul>
-            <li>{{Aspirantes.nombre}}</li>
-            <li>{{Aspirantes.edad}}</li>
-            <li>{{Aspirantes.ingreso}}</li>
+            <li>Nombre: {{aspirantes.nombre}}</li>
+            <li>Edad: {{aspirantes.edad}}</li>
+            <li>Ingreso: {{aspirantes.ingreso}}</li>
         </ul>
+    </p>
     {%endfor%}
 {% endblock %}

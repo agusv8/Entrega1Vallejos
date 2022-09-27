@@ -9,12 +9,14 @@
 {% block tituloprin%}
     <p>Está buscando: {{busqueda}}</p>
 
-    {% for empleado in Empleados %}
+    {% for empleados in empleados %}
+    <p>
         <ul>
-            <li>{{Empleados.nombre}}</li>
-            <li>{{Empleados.edad}}</li>
-            <li>{{Empleados.cargos}}</li>
+            <li>Nombre: {{empleados.nombre}}</li>
+            <li>Edad: {{empleados.edad}}</li>
+            <li>Cargos: {{empleados.cargos}}</li>
         </ul>
+    </p>
     {%endfor%}
 {% endblock %}
 
