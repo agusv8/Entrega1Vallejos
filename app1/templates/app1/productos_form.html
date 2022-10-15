@@ -1,0 +1,14 @@
+{% extends "app1/padre.html" %}
+
+{% block tituloprin %}
+    
+Lista de Productos
+    
+{% endblock %}
+
+{% block descripcion %}
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Actualizar">
+</form> 
+{% endblock %}

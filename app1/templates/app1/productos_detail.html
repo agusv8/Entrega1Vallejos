@@ -1,0 +1,19 @@
+{% extends "app1/padre.html" %}
+
+{% block tituloprin %}
+ <h1>
+    Descripcion
+ </h1>   
+    
+{% endblock %}
+
+{% block descripcion %}
+<p>
+    Nombre: {{productos.nombre}}
+    <br>
+    Código: {{productos.codigo}}
+    <br>
+    Vto: {{productos.vto}}
+</p>
+<a href="{% url 'productos' %}">Atrás</a>
+{% endblock %}

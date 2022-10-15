@@ -1,0 +1,28 @@
+{% extends "app1/padre.html" %}
+
+{% block tituloprin %}
+    
+Lista de Productos
+    
+{% endblock %}
+
+{% block descripcion %}
+
+    <h1>Los productos son:</h1>
+    {% for productos in object_list %}
+        <li>Nombre: {{productos.nombre}}</li>
+        <button>
+            <a href="{% url 'EditarProductos' productos.id %}">Editar</a>
+        </button>
+        <button>
+            <a href="{% url 'ProductosDetalle' productos.id %}">Detalle</a>
+        </button>
+        <button>
+            <a href="{% url 'BorrarProductos' productos.id %}">Borrar</a>
+        </button>
+    {% endfor %}
+    <br>
+    <button>
+        <a href="{% url 'crearproducto' %}">Crear</a>
+    </button>
+{% endblock %}

@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/app1/">Adm. Supermercados Vallejos</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">Adm. Supermercados Vallejos</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -29,43 +29,50 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Empleados
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/empleados/">Ver Empleados</a></li>
+                                <li><a class="dropdown-item" href="{% url 'empleados' %}">Ver Empleados</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/crearempleado/">Crear Empleados</a></li>
+                                <li><a class="dropdown-item" href="{% url 'crearempleado' %}">Crear Empleados</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Aspirantes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'aspirantes' %}">Aspirantes</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stock
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Todos los productos</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Populares</a></li>
-                                <li><a class="dropdown-item" href="#!">Nuevos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'productos' %}">Todos los productos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inscripción
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/crearempleado/">Inscribir Empleado</a></li>
+                                <li><a class="dropdown-item" href="{% url 'crearempleado' %}">Inscribir Empleado</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/crearaspirante/">Inscribir Aspirante</a></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/crearproducto/">Inscribir Producto</a></li>
+                                <li><a class="dropdown-item" href="{% url 'crearaspirante' %}">Inscribir Aspirante</a></li>
+                                <li><a class="dropdown-item" href="{% url 'crearproducto' %}">Inscribir Producto</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Busqueda
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/busquedaemp/">Buscar Empleado</a></li>
+                                <li><a class="dropdown-item" href="{% url 'busquedaemp' %}">Buscar Empleado</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/busquedaasp/">Buscar Aspirante</a></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/app1/busquedapro/">Buscar Producto</a></li>
+                                <li><a class="dropdown-item" href="{% url 'busquedaasp' %}">Buscar Aspirante</a></li>
+                                <li><a class="dropdown-item" href="{% url 'busquedapro' %}">Buscar Producto</a></li>
                             </ul>
                         </li>
                     </ul>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'editarUsuarios' %}">Editar Cuenta</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cerrarsesion' %}">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class="dropdown-item" href="{% url 'Registro' %}"><button class="btn btn-outline-dark" type="submit">Registrarse</button></a>
                 </div>
             </div>
         </nav>
@@ -73,10 +80,8 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">
                         {% block tituloprin%}
                         {% endblock %}
-                    </h1>
                     <p class="lead fw-normal text-white-50 mb-0">
                         {% block descripcion%}
                         {% endblock %}

@@ -1,0 +1,12 @@
+{% extends "app1/padre.html" %}
+
+{% block descripcion %}
+        <form method="POST" > {% csrf_token %}
+
+            {{formu4.as_p}}
+            <button type="submit">Registrarse</button>
+        </form>
+
+    
+
+{%endblock%}

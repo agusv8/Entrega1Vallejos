@@ -1,0 +1,9 @@
+{% extends "app1/padre.html" %}
+
+{% block descripcion %}
+    <form method="POST"> {% csrf_token %}
+
+        {{formu3.as_p}}
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+{%endblock%}

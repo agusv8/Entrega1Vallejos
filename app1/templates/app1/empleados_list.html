@@ -1,0 +1,28 @@
+{% extends "app1/padre.html" %}
+
+{% block tituloprin %}
+    
+Lista de Empleados
+    
+{% endblock %}
+
+{% block descripcion %}
+
+    <h1>Los empleados son:</h1>
+    {% for empleados in object_list %}
+        <li>Nombre: {{empleados.nombre}}</li>
+        <button>
+            <a href="{% url 'EditarEmpleado' empleados.id %}">Editar</a>
+        </button>
+        <button>
+            <a href="{% url 'EmpleadoDetalle' empleados.id %}">Detalle</a>
+        </button>
+        <button>
+            <a href="{% url 'BorrarEmpleado' empleados.id %}">Borrar</a>
+        </button>
+    {% endfor %}
+    <br>
+    <button>
+        <a href="{% url 'crearempleado' %}">Crear</a>
+    </button>
+{% endblock %}
