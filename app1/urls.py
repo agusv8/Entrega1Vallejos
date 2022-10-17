@@ -29,4 +29,5 @@ urlpatterns = [
     path('aspirantes/editar/<int:pk>', views.AspirantesUpdate.as_view(), name = "EditarAspirantes"),
     path('aspirantes/borrar/<int:pk>', views.AspirantesBorrar.as_view(), name = "BorrarAspirantes"),
     path('editarUsuarios', views.editarUsuario, name = "editarUsuarios"),
+    path("avatar/", views.crearAvatar, name="Avatar"),
 ]

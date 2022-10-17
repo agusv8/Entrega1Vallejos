@@ -1,4 +1,5 @@
 from django import forms
+from app1.models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 class Formularioempleado(forms.Form):
@@ -35,3 +36,11 @@ class FormularioEditarUsuario(UserCreationForm):
     class Meta():
         model = User 
         fields = ["email", "password1", "password2", "first_name", "last_name"]
+
+class AvatarFormulario(forms.ModelForm):
+    
+    class Meta:
+
+        model = Avatar
+
+        fields = ["imagen"]

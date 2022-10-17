@@ -1,4 +1,6 @@
+from distutils.command.upload import upload
 from django.db import models
+from django.contrib.auth.models import User
 
 class Productos(models.Model):
     def __str__(self):
@@ -20,3 +22,7 @@ class Aspirantes(models.Model):
     nombre = models.CharField(max_length=60)
     edad = models.IntegerField()
     ingreso = models.DateField()
+
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to="avatares", null=True, blank=True)

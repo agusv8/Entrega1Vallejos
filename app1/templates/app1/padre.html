@@ -63,16 +63,26 @@
                             </ul>
                         </li>
                     </ul>
+                    {% if request.user.is_authenticated%}
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'editarUsuarios' %}">Editar Cuenta</a></li>
+                                <li><a class="dropdown-item" href="{% url 'Avatar' %}">Cambiar Avatar</a></li>
                                 <li><a class="dropdown-item" href="{% url 'cerrarsesion' %}">Cerrar Sesión</a></li>
                             </ul>
                         </li>
+                        {% with user.avatar_set.first as first_image %}
+                            {% if first_image %}
+                        <img src="{{first_image.imagen.url}}" height="50" width="50" ;">
+                            {% endif %}
+                        {% endwith %}
                     </ul>
+                    {% else %}
                     <a class="dropdown-item" href="{% url 'Registro' %}"><button class="btn btn-outline-dark" type="submit">Registrarse</button></a>
+                    <a class="dropdown-item" href="{% url 'Login' %}"><button class="btn btn-outline-dark" type="submit">Iniciar Sesión</button></a>
+                    {% endif %}
                 </div>
             </div>
         </nav>
@@ -90,9 +100,6 @@
             </div>
         </header>
         <!-- Section-->
-            {%block productos%}
-            {%endblock%}
-        
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>

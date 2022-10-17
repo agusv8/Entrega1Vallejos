@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app1.form import FormularioEditarUsuario, Formularioempleado, Formularioproducto, Formularioaspirante, FormularioRegistro
+from app1.form import FormularioEditarUsuario, Formularioempleado, Formularioproducto, Formularioaspirante, FormularioRegistro, AvatarFormulario
 from django.http import HttpResponse
 from app1.models import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -196,3 +196,26 @@ def editarUsuario(request):
             formEdicion = FormularioEditarUsuario(initial = {"email":usuarioConectado.email, "nombre": usuarioConectado.first_name, "apellido":usuarioConectado.last_name})
       contexto = {"formEdicion":formEdicion, "UsuarioNombre":usuarioConectado}
       return render(request, "app1/editarUsuario.html", contexto)
+
+@login_required
+def crearAvatar(request):
+
+    if request.method == "POST":
+
+        miformulario = AvatarFormulario(request.POST, request.FILES)
+
+        if miformulario.is_valid():
+
+            usuarioActual = User.objects.get(username=request.user)
+
+            avatar = Avatar(user = usuarioActual, imagen=miformulario.cleaned_data["imagen"])
+
+            avatar.save()
+
+            return render(request, "app1/inicio.html")
+        
+    else:
+
+        miformulario = AvatarFormulario()
+        
+    return render(request, "app1/crearavatar.html", {"miformulario":miformulario})
