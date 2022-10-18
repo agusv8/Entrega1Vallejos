@@ -2,13 +2,13 @@
 
 {% block tituloprin %}
     
-Eliminar producto
+Eliminar aspirante
     
 {% endblock %}
 
 {% block descripcion %}
 <form method="POST"> {% csrf_token %}
-    <p>Estás seguro que quieres borrar {{productos.nombre}}</p>
+    <p>Estás seguro que quieres borrar {{aspirantes.nombre}}</p>
     <input type="submit" value="Confirmar">
 </form> 
 {% endblock %}

@@ -30,8 +30,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'empleados' %}">Ver Empleados</a></li>
+                                {% if request.user.is_authenticated%}
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="{% url 'crearempleado' %}">Crear Empleados</a></li>
+                                {% endif %}
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'aspirantes' %}">Aspirantes</a></li>
@@ -42,6 +44,7 @@
                                 <li><a class="dropdown-item" href="{% url 'productos' %}">Todos los productos</a></li>
                             </ul>
                         </li>
+                        {% if request.user.is_authenticated%}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inscripción
                             </a>
@@ -52,6 +55,7 @@
                                 <li><a class="dropdown-item" href="{% url 'crearproducto' %}">Inscribir Producto</a></li>
                             </ul>
                         </li>
+                        {% endif %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Busqueda
                             </a>
@@ -68,14 +72,16 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'Cuenta' %}">Cuenta</a></li>
                                 <li><a class="dropdown-item" href="{% url 'editarUsuarios' %}">Editar Cuenta</a></li>
                                 <li><a class="dropdown-item" href="{% url 'Avatar' %}">Cambiar Avatar</a></li>
                                 <li><a class="dropdown-item" href="{% url 'cerrarsesion' %}">Cerrar Sesión</a></li>
                             </ul>
                         </li>
-                        {% with user.avatar_set.first as first_image %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Avatar' %}" style="color:grey;">Hola {{user.username}}</a></li>
+                        {% with first_image=user.avatar_set.last %}
                             {% if first_image %}
-                        <img src="{{first_image.imagen.url}}" height="50" width="50" ;">
+                        <img src="{{first_image.imagen.url}}" style="max-width: 50px">
                             {% endif %}
                         {% endwith %}
                     </ul>
@@ -102,7 +108,8 @@
         <!-- Section-->
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022 &nbsp<a href="{% url 'Acerca' %}">Acerca</a></p></div>
+            
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -30,4 +30,6 @@ urlpatterns = [
     path('aspirantes/borrar/<int:pk>', views.AspirantesBorrar.as_view(), name = "BorrarAspirantes"),
     path('editarUsuarios', views.editarUsuario, name = "editarUsuarios"),
     path("avatar/", views.crearAvatar, name="Avatar"),
+    path("acerca/", views.acerca, name="Acerca"),
+    path("cuenta/", views.cuenta, name="Cuenta"),
 ]

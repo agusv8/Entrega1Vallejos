@@ -1,3 +1,9 @@
-Mi idea fue crear una web en donde se pueda gestionar algunos aspectos de un supermercado. La pagina de inicio mostraria los productos principales,
-en las pestañas de arriba se puede seleccionar distintas opciones, las mas importantes son las de registrar (para almacenar datos) y el buscador. 
-La idea del Stock, empleados y aspirantes sería simplemente mostrar una lista, pero no lo hice porque vi que no era parte de la consigna, pero la idea está.
+# Gestion Supermercado Vallejos
+Mi nombre es Vallejos Agustin Mateo. Mi idea para el proyecto fue inspirada en las problematicas que atendemos con mi familia en nuestro propio negocio, busca gestionar y tener una minima vision de los productos, empleados y aspirantes a contratar.
+Los usuarios no registrados pueden ver la base de datos de los productos, por si se requiere urgencia en la consulta de informacion básica o actualizarla.
+Se pueden registrar parte del staff para que estos puedan administrar estos aspectos, sin embargo solo el supervisor puede eliminar o editar datos.
+Los usuarios pueden cambiar su avatar cuantas veces quieran, ya que me di cuenta que si ponía "first" en vez de "last" solo quedaba una imagen (la primera puesta) y a su vez ver los datos de su cuenta en el apartado "Cuenta", como asi tambien editarlo en el apartado "Editar Cuenta".
+
+
+Link a la videopresentacion de la pagina:
+https://youtu.be/1k28XEkwU3A

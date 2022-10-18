@@ -38,9 +38,6 @@ class FormularioEditarUsuario(UserCreationForm):
         fields = ["email", "password1", "password2", "first_name", "last_name"]
 
 class AvatarFormulario(forms.ModelForm):
-    
     class Meta:
-
         model = Avatar
-
         fields = ["imagen"]

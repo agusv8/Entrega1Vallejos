@@ -2,12 +2,12 @@ from django.shortcuts import render
 from app1.form import FormularioEditarUsuario, Formularioempleado, Formularioproducto, Formularioaspirante, FormularioRegistro, AvatarFormulario
 from django.http import HttpResponse
 from app1.models import *
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
 def inicio(request):
@@ -18,7 +18,7 @@ def empleados(request):
 @login_required
 def aspirantes(request):
     return render(request, "app1/aspirantes.html")
-
+@login_required
 def productos(request):
     return render(request, "app1/productos_list.html")
 @login_required
@@ -96,9 +96,9 @@ def busquedaaspirante(request):
       return HttpResponse (respuesta)
 @login_required
 def busquedaproducto(request):
-      if request.GET["codigo"]:
+      if request.GET["nombre"]:
             busqueda3 = request.GET["nombre"]
-            producto = Productos.objects.filter(codigo__icontains=busqueda3)
+            producto = Productos.objects.filter(nombre__icontains=busqueda3)
             return render (request, "app1/resultadospro.html", {"producto":producto, "busqueda3":busqueda3})
       else:
             respuesta = "No enviaste datos"
@@ -147,9 +147,21 @@ class EmpleadosUpdate(UpdateView):
       model = Empleados
       success_url = "/app1/empleados/"
       fields = ["nombre","edad", "cargos"]
+      def get(self, request, **kwargs):
+        if not self.request.user.has_perm("app1.view_aspirantes"):
+            return render(request, "app1/adminrequired.html")
+        self.object = self.get_object()
+        contexto = self.get_context_data(object=self.object)
+        return self.render_to_response(contexto)
 class EmpleadosBorrar(DeleteView):
       model = Empleados
       success_url = "/app1/empleados/"
+      def get(self, request, **kwargs):
+        if not self.request.user.has_perm("app1.view_aspirantes"):
+            return render(request, "app1/adminrequired.html")
+        self.object = self.get_object()
+        contexto = self.get_context_data(object=self.object)
+        return self.render_to_response(contexto)
 
 
 class ProductosLista(ListView):
@@ -172,9 +184,21 @@ class AspirantesUpdate(UpdateView):
       model = Aspirantes
       success_url = "/app1/aspirantes/"
       fields = ["nombre","edad", "ingreso"]
+      def get(self, request, **kwargs):
+        if not self.request.user.has_perm("app1.view_aspirantes"):
+            return render(request, "app1/adminrequired.html")
+        self.object = self.get_object()
+        contexto = self.get_context_data(object=self.object)
+        return self.render_to_response(contexto)
 class AspirantesBorrar(DeleteView):
       model = Aspirantes
       success_url = "/app1/aspirantes/"
+      def get(self, request, **kwargs):
+        if not self.request.user.has_perm("app1.view_aspirantes"):
+            return render(request, "app1/adminrequired.html")
+        self.object = self.get_object()
+        contexto = self.get_context_data(object=self.object)
+        return self.render_to_response(contexto)
 
 @login_required
 def editarUsuario(request):
@@ -199,23 +223,19 @@ def editarUsuario(request):
 
 @login_required
 def crearAvatar(request):
-
     if request.method == "POST":
-
         miformulario = AvatarFormulario(request.POST, request.FILES)
-
         if miformulario.is_valid():
-
             usuarioActual = User.objects.get(username=request.user)
-
             avatar = Avatar(user = usuarioActual, imagen=miformulario.cleaned_data["imagen"])
-
             avatar.save()
-
             return render(request, "app1/inicio.html")
-        
     else:
-
         miformulario = AvatarFormulario()
-        
     return render(request, "app1/crearavatar.html", {"miformulario":miformulario})
+
+def acerca(request):
+      return render(request, "app1/acercademi.html")
+
+def cuenta(request):
+      return render(request, "app1/cuenta.html")

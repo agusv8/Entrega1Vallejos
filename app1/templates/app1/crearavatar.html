@@ -6,7 +6,6 @@
 
 {% block tituloprin%}
         <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-            
             {{miformulario.as_p}}
             <button type="submit"> Enviar </button>
         </form>

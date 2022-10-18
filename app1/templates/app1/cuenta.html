@@ -1,0 +1,21 @@
+{% extends "app1/padre.html" %}
+
+{% block tituloprin %}
+ <h1>
+    Descripcion
+ </h1>   
+    
+{% endblock %}
+
+{% block descripcion %}
+<p>
+    Nombre de usuario: {{user.username}}
+    <br>
+    Nombre: {{user.first_name}}
+    <br>
+    Apellido: {{user.last_name}}
+    <br>
+    Email: {{user.email}}
+</p>
+<a href="{% url 'inicio' %}">Atrás</a>
+{% endblock %}
